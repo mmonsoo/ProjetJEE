@@ -12,5 +12,11 @@
   <label>La famille de la plante: </label>
   <input name='default' [(ngModel)]="plante.famille" />
   <br>
-  <button name='default' (click)="addPlante()">Ajouter la nouvelle plante</button>
+  <button name='default' (click)="addPlante()" *ngIf="!edit">Ajouter la nouvelle plante</button>
+  <button name='default' (click)="editOver()" *ngIf="edit">Sousmettre</button>
+
 </form>
+<!-- Edition de paramètres-->
+<ul *ngFor="let p of plantes">
+  <li>{{p.genre|uppercase}} {{p.ordre}} {{p.famille}} <button name='default' (click)="editionPlante(p.id)">Edit plante</button></li> 
+</ul>
