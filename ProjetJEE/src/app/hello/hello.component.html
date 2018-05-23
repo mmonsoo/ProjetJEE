@@ -1,0 +1,18 @@
+
+  hello {{etudiant.nom}}
+  <br>
+  {{getEtudiant()}}
+
+  <!-- On lance juste un évènement-->  <br>
+  <button (click)="getEtudiant2()">getetudiant</button>
+  <br>
+  <!-- Il fallait importer FormsModule-->
+  <input [(ngModel)]="etudiant.nom"/>
+  <button (click)="saveEtudiant()">Save étudiant</button>
+  <br>
+  <!-- Il faut pas mettre le ngIf dans  -->
+  <div *ngIf="etudiant.saved">Etudiant enregistré</div>
+  <!--ce ne sont pas des variables d'instances les let, mais des variables à faible porté , exemple utilisé que dans les fonctions-->
+  <ul *ngFor="let e of etudiants">
+    <li>{{e.nom}}</li>
+  </ul>

@@ -1,0 +1,16 @@
+<h2>La liste des plantes </h2>
+<ul *ngFor="let p of plantes">
+  <li>{{p.genre|uppercase}} {{p.ordre}} {{p.famille}}</li>
+</ul>
+<form>
+  <label>Le genre de la plante: </label>
+  <input name='default' [(ngModel)]="plante.genre" />
+  <br>
+  <label>L'ordre de la plante: </label>
+  <input name='default' [(ngModel)]="plante.ordre" />
+  <br>
+  <label>La famille de la plante: </label>
+  <input name='default' [(ngModel)]="plante.famille" />
+  <br>
+  <button name='default' (click)="addPlante()">Ajouter la nouvelle plante</button>
+</form>
