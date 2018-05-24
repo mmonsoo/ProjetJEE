@@ -5,6 +5,8 @@ export class Plante {
     public ordre: string;
     public famille: string;
     public id: number;
+    public ville: string;
+    public dateSoumission: string;
 
     // On peut mettre des paramètres par défaut
 
@@ -13,5 +15,15 @@ export class Plante {
         this.genre = genre;
         this.ordre = ordre;
         this.famille = famille;
+        this.ville = '';
+        this.dateSoumission = '';
+
+    }
+
+    setVille(tmpville: string): void {
+        this.ville = tmpville;
+    }
+    setDateSoumission(tmpdatesoumission: string): void {
+        this.dateSoumission = tmpdatesoumission;
     }
 }

@@ -1,7 +1,8 @@
 <h2>La liste des plantes </h2>
 <ul *ngFor="let p of plantes">
-  <li>{{p.genre|uppercase}} {{p.ordre}} {{p.famille}}</li>
+  <li (click)="onSelect(p)">{{p.genre|uppercase}} {{p.ordre}} {{p.famille}}</li>
 </ul>
+<!--
 <form>
   <label>Le genre de la plante: </label>
   <input name='default' [(ngModel)]="plante.genre" />
@@ -12,11 +13,28 @@
   <label>La famille de la plante: </label>
   <input name='default' [(ngModel)]="plante.famille" />
   <br>
+  <label>La ville où la plante a été observée: </label>
+  <input name='default' [(ngModel)]="plante.ville" />
+  <label>Date d'observation </label>
+  <input name='default' [(ngModel)]="plante.dateSoumission" />
+
   <button name='default' (click)="addPlante()" *ngIf="!edit">Ajouter la nouvelle plante</button>
   <button name='default' (click)="editOver()" *ngIf="edit">Sousmettre</button>
-
 </form>
+-->
 <!-- Edition de paramètres-->
+<!-- 
 <ul *ngFor="let p of plantes">
   <li>{{p.genre|uppercase}} {{p.ordre}} {{p.famille}} <button name='default' (click)="editionPlante(p.id)">Edit plante</button></li> 
 </ul>
+-->
+<!--
+<div *ngIf="selectedPlante">
+  <h2>{{ selectedPlante.genre | uppercase }} Détails</h2>
+  <div><span>La famille: </span>{{selectedPlante.famille}}</div>
+  <div><span>L'ordre: </span>{{selectedPlante.ordre}}</div>
+  <div><span>La ville d'observation: </span>{{selectedPlante.ville}}</div>
+  <div><span> Date de soumission pour l'identification </span>{{selectedPlante.dateSoumission}}</div>
+</div>
+-->
+<app-plante-detail [plante]="selectedPlante"></app-plante-detail>
