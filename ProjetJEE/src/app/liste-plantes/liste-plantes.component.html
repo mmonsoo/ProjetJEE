@@ -1,7 +1,26 @@
-<h2>La liste des plantes </h2>
+<h2>Les plantes à identifier </h2>
+<!-- 
 <ul *ngFor="let p of plantes">
-  <li (click)="onSelect(p)">{{p.genre|uppercase}} {{p.ordre}} {{p.famille}}</li>
+  <li (click)="onSelect(p)">{{p.genre|uppercase}} {{p.ordre}} {{p.famille}}</li> <a [routerLink]="['/plante',p.id]">VOIR</a>
 </ul>
+-->
+
+<div id="liste-plantes">
+  <div *ngFor="let p of plantes" class="card" style="width: 18rem;">
+    <!-- <div class="card" style="width: 18rem;"> -->
+      <img class="card-img-top" [src]="p.photo" alt="Image plante" height="300" width="300">
+      <div class="card-body">
+        <h5 class="card-title">{{p.genre}}</h5>
+        <p class="card-text">{{p.famille}}</p>
+        <p class="card-utilisateur"> Soumis par {{p.utilisateur}}</p>
+        Commentaires <span class="badge">10</span>
+        <a [routerLink]="['/plante',p.id]" class="btn btn-primary">Identifier</a>
+      </div>
+    <!-- </div>-->
+  </div>
+</div>
+
+
 <!--
 <form>
   <label>Le genre de la plante: </label>

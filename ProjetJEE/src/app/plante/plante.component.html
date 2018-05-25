@@ -1,0 +1,31 @@
+<div *ngIf="plante">
+  <h2>Détails sur {{ plante.genre | uppercase }} </h2>
+ <div class="ensemble-image-panel">
+    <div class="image-plante">
+      <img class="image" [src]="plante.photo" alt="Image plante" class="img-rounded">
+    </div> 
+    <div class="panel-info">
+      <div><span>Soumis par: </span> <span class="info-valeur">{{plante.utilisateur}}</span></div>
+      <div><span>Le genre: </span> <span class="info-valeur">{{plante.genre}}</span></div>
+      <div><span>La famille: </span> <span class="info-valeur">{{plante.famille}}</span></div>
+      <div><span>L'ordre: </span> <span class="info-valeur">{{plante.ordre}}</span></div>
+      <div><span>La ville d'observation: </span> <span class="info-valeur">{{plante.ville}}</span></div>
+      <div><span>Date de soumission pour l'identification:</span> <span class="info-valeur">{{plante.dateSoumission}}</span></div>
+    </div>
+</div>
+
+<!-- TODO     div *ngIf="edit"  et la fonction modifie le booléen-->
+  <button type="button" class="btn btn-primary">Afficher Informations</button>
+  <button type="button" class="btn btn-warning">Afficher commentaires</button>
+  <button type="button" class="btn btn-success">Ajouter identification</button>
+  <button type="button" class="btn btn-danger">Commenter</button>
+  <div espace commentaire></div>  <!-- si au moins un commentaire existe pour cette plante-->
+<!-- 
+    <h2>{{ plante.genre | uppercase }} Détails</h2>
+    <div><span>La famille: </span>{{plante.famille}}</div>
+    <div><span>L'ordre: </span>{{plante.ordre}}</div>
+    <div><span>La ville d'observation: </span>{{plante.ville}}</div>
+    <div><span> Date de soumission pour l'identification </span>{{plante.dateSoumission}}</div>
+    <img [src]="'/assets/images/'+plante.photo">
+-->
+</div>

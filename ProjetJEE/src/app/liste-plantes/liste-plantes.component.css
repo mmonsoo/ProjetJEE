@@ -1,0 +1,19 @@
+#liste-plantes{
+    margin-top:30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content:space-between;
+    width:1800px;
+}
+h2{
+    text-align:center;
+}
+.card{
+    margin-top:30px;
+    margin-left:10px;
+    margin-right:300px;
+}
+.card-utilisateur{
+    color:#cb1f00;
+}

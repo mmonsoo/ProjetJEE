@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-identification-espece',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./identification-espece.component.css']
 })
 export class IdentificationEspeceComponent implements OnInit {
-
-  constructor() { }
+  pram:string;
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    // On récupère l'id de la plante
+    this.activatedRoute.route.params.subscribe()
   }
 
 }

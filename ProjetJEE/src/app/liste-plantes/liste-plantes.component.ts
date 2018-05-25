@@ -23,10 +23,10 @@ export class ListePlantesComponent implements OnInit {
   constructor(private planteService: PlanteService) {
   }
   // Après l'initialisation du composant, avec le constructzur que l'on doit laisser vide, il fait ngOnInit.
-  //ngOnInit, c'est un hook, un lifecycle hooks.
+  // ngOnInit, c'est un hook, un lifecycle hooks.
   ngOnInit() {
     this.plantes = this.planteService.getPlantes();
-    
+
     //this.planteService.getEvent().subscribe(console.log('ok'));
   }
   // Ajoute dans la liste des plantes
