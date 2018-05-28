@@ -4,20 +4,48 @@
     <div class="image-plante">
       <img class="image" [src]="plante.photo" alt="Image plante" class="img-rounded">
     </div> 
-    <div class="panel-info">
-      <div><span>Soumis par: </span> <span class="info-valeur">{{plante.utilisateur}}</span></div>
+    <!-- Div concernant les infos de la photo -->
+    <div *ngIf="booleanPanelInfo" class="panel-info">
+      <div><span>Soumis par l'utilisateur: </span> <span class="info-valeur">{{plante.utilisateur}}</span></div>
+      <div><span>L'espèce: </span> <span class="info-valeur">{{plante.espece}}</span></div>
       <div><span>Le genre: </span> <span class="info-valeur">{{plante.genre}}</span></div>
       <div><span>La famille: </span> <span class="info-valeur">{{plante.famille}}</span></div>
       <div><span>L'ordre: </span> <span class="info-valeur">{{plante.ordre}}</span></div>
-      <div><span>La ville d'observation: </span> <span class="info-valeur">{{plante.ville}}</span></div>
-      <div><span>Date de soumission pour l'identification:</span> <span class="info-valeur">{{plante.dateSoumission}}</span></div>
+      <div><span>La classe: </span> <span class="info-valeur">{{plante.classe}}</span></div>
+      <div><span>L'embranchement: </span> <span class="info-valeur">{{plante.embranchement}}</span></div>
+      <div><span>La ville où a été prise la photo: </span> <span class="info-valeur">{{plante.ville}}</span></div>
+      <div><span>La date de l'ajout de la photo:</span> <span class="info-valeur">{{plante.dateSoumission}}</span></div>
     </div>
+    <!-- Div concernant l'ajout d'une identification à la photo-->
+    <div *ngIf="booleanAjoutIdentification" class="panel-identification">
+      <label>La taxonomie:</label>
+      <select  [(ngModel)]="tmpSelectElement" class="selectpicker" data-live-search="true">
+          <option data-tokens="espèce">Espèce</option>
+          <option data-tokens="genre">Genre</option>
+          <option data-tokens="famille">Famille</option>
+          <option data-tokens="ordre">Ordre</option>
+          <option data-tokens="classe">Classe</option>
+          <option data-tokens="embranchement">Embranchement</option>
+        </select>
+        <br><br>
+        <input [(ngModel)]="tmpvaleurElement" class="form-control input-sm" id="inputsm" type="text" placeholder="Exemple: Passiflora">
+        <br><br>
+        <div class="form-group">
+            <label for="comment">Commentaire:</label>
+            <textarea [(ngModel)]="tmpCommentaire" class="form-control" rows="5" id="comment"></textarea>
+          </div>
+        <button (click)="addVersionElement()" type="submit">Sousmettre</button>
+      <!-- Partie pour commentaires -->
+    </div>
+
+    
+
 </div>
 
 <!-- TODO     div *ngIf="edit"  et la fonction modifie le booléen-->
-  <button type="button" class="btn btn-primary">Afficher Informations</button>
+  <button (click)="displayPanelInformations()" type="button" class="btn btn-primary">Afficher Informations</button>
   <button type="button" class="btn btn-warning">Afficher commentaires</button>
-  <button type="button" class="btn btn-success">Ajouter identification</button>
+  <button (click)="addIdentification()" type="button" class="btn btn-success">Ajouter identification</button>
   <button type="button" class="btn btn-danger">Commenter</button>
   <div espace commentaire></div>  <!-- si au moins un commentaire existe pour cette plante-->
 <!-- 

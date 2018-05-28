@@ -13,9 +13,14 @@ import { PlanteService } from './_services/plante.service';
 import { RouterModule, Routes } from '@angular/router';
 import { IdentificationEspeceComponent } from './identification-espece/identification-espece.component';
 import { PlanteComponent } from './plante/plante.component';
+import { LogingComponent } from './loging/loging.component';
+import { SignupComponent } from './signup/signup.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 // /locahost:4200/hello
 const appRoutes: Routes = [{ path: '', component: ListePlantesComponent },
- { path: 'listeplantes', component: ListePlantesComponent }, { path: 'plante/:id', component: PlanteComponent }];
+{ path: 'listeplantes', component: ListePlantesComponent },
+{ path: 'plante/:id', component: PlanteComponent }, { path: 'loging', component: LogingComponent },
+{ path: 'login', component: LogingComponent }, { path: 'signup', component: SignupComponent }];
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ const appRoutes: Routes = [{ path: '', component: ListePlantesComponent },
     ListePlantesComponent,
     PlanteDetailComponent,
     IdentificationEspeceComponent,
-    PlanteComponent
+    PlanteComponent,
+    LogingComponent,
+    SignupComponent,
+    UtilisateurComponent
   ],
   // On a importé RouterModule.forRoot(appRoutes) pour les urls qui vont changer en fonction des url
   imports: [RouterModule.forRoot(appRoutes),

@@ -7,12 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./identification-espece.component.css']
 })
 export class IdentificationEspeceComponent implements OnInit {
-  pram:string;
+  param: string;
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     // On récupère l'id de la plante
-    this.activatedRoute.route.params.subscribe()
+    this.activatedRoute.params.subscribe();
   }
 
 }

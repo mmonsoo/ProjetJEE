@@ -11,7 +11,7 @@ h2{
     flex-wrap: wrap;
     align-content:space-between;
 }
-.panel-info{
+.panel-info, .panel-identification{
     margin-left: 40px;
 }
 .info-valeur{
