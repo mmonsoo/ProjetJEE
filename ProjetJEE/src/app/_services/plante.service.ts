@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Plante } from '../_models';
+import { Plante, VersionElement } from '../_models';
 import { EventEmitter } from 'protractor';
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,8 @@ new Plante('Mentha', 'Lamiales', 'Lamiaceae', 'assets/images/4.jpg', 'Vita')];
 */
 export class PlanteService {
   plantes = [new Plante('	Asclepias', 'Gentianales', 'Asclepiadacées', 'assets/images/0.jpg', 'Camille'),
-  new Plante('Passiflora', 'Malpighiales', 'Passifloraceae', 'assets/images/1.jpg', 'Pierre'),
+  new Plante('Passiflora', 'Malpighiales', 'Passifloraceae', 'assets/images/1.jpg', 'Pierre').addVersionElement(new VersionElement('Genre', 'Asclepias', 'Vive les plantes yo',5)).addVersionElement(new VersionElement('Genre', 'Carnivorus Loup Loup', 'Je suis sûr que c\'est une passiflore les gens',1)).addVersionElement(new VersionElement('Genre', 'Dodo planta', 'Bonjour, je me sens seul',3)),
+
   new Plante('Valeriana', 'Dipsacales', 'Caprifoliaceae', 'assets/images/2.jpg', 'Gabriel'),
   new Plante('Tanacetum', 'Asterales', 'Asteraceae', 'assets/images/3.jpg', 'Majid'),
   new Plante('Mentha', 'Lamiales', 'Lamiaceae', 'assets/images/4.jpg', 'Vita')];
