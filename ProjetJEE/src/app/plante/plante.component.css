@@ -19,6 +19,7 @@ h2{
 }
 
 
+
 .info-valeur{
     color:rgb(26, 165, 26); font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px; 
 }
@@ -36,3 +37,15 @@ color:rgb(23, 44, 161); font-family: 'Droid Sans', sans-serif; font-size: 15px; 
     border-bottom: 10px solid rgb(115, 12, 129);
     width: 500px;
 }
+th{
+    width:50px;
+}
+
+#liste-identification{
+    width:400px;
+    margin-top:10px;
+}
+
+table {
+    border:5px solid blue;
+  }

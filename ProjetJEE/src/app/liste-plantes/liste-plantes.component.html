@@ -13,7 +13,7 @@
         <h5 class="card-title">{{p.genre}}</h5>
         <p class="card-text">{{p.famille}}</p>
         <p class="card-utilisateur"> Soumis par {{p.utilisateur}}</p>
-        Commentaires <span class="badge">10</span>
+        Nombre d'identifications <span class="badge"> {{p.listeVersion.length}}</span>  
         <a [routerLink]="['/plante',p.id]" class="btn btn-primary">Identifier</a>
       </div>
     <!-- </div>-->

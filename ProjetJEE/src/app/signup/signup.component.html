@@ -1,11 +1,11 @@
 <div class="signup">
     <div class="col-xs-4">
       <label for="email">Entrer une addresse d'Email:</label>
-      <input type="text" class="form-control input-sm" id="email">
+      <input type="text" [(ngModel)]="email" class="form-control input-sm" id="email">
     </div>
     <div class="col-xs-4">
       <label for="pwd">Entrer un mot de passe:</label>
-      <input type="password" class="form-control input-sm" id="pwd">
+      <input type="password" [(ngModel)]="password" class="form-control input-sm" id="pwd">
     </div>
     <button (click)="addUser()" type="submit" class="btn btn-default">Submit</button>
   </div>

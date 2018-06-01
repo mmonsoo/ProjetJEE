@@ -29,6 +29,8 @@ export class Plante {
         // On trie la liste selon les votes
         this.listeVersion = [];
     }
+
+   
     setVille(tmpville: string): void {
         this.ville = tmpville;
     }

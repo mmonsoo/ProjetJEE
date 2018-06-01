@@ -5,10 +5,13 @@ export class Utilisateur {
     id: number;
     nom: string;
     prenom: string;
+    login: string;
     password: string;
-    constructor(tmpNom: string, tmpPrenom: string) {
+    constructor(tmpNom: string, tmpPrenom: string, tmpLogin: string, tmpPassword: string) {
         this.id = Utilisateur.count++;
         this.nom = tmpNom;
         this.prenom = tmpPrenom;
+        this.login = tmpLogin;
+        this.password = tmpPassword;
     }
 }
