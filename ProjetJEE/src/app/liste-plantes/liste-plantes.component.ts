@@ -29,7 +29,7 @@ export class ListePlantesComponent implements OnInit {
   // ngOnInit, c'est un hook, un lifecycle hooks.
   ngOnInit() {
     //this.plantes = this.planteService.getPlantes();
-    this.http.get('http://localhost:8080/allusers').subscribe(r => this.showReturn(r));
+    this.http.get('http://localhost:8080/allplantes').subscribe(r => this.showReturn(r));
 
     //this.planteService.getEvent().subscribe(console.log('ok'));
   }
