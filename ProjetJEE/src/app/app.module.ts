@@ -16,11 +16,15 @@ import { PlanteComponent } from './plante/plante.component';
 import { LogingComponent } from './loging/loging.component';
 import { SignupComponent } from './signup/signup.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { WebComponent } from './web/web.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AjoutIdentificationComponent } from './ajout-identification/ajout-identification.component';
 // /locahost:4200/hello
 const appRoutes: Routes = [{ path: '', component: ListePlantesComponent },
 { path: 'listeplantes', component: ListePlantesComponent },
 { path: 'plante/:id', component: PlanteComponent }, { path: 'loging', component: LogingComponent },
-{ path: 'login', component: LogingComponent }, { path: 'signup', component: SignupComponent }];
+{ path: 'login', component: LogingComponent }, { path: 'signup', component: SignupComponent },
+{path:'ajoutplante',component:AjoutIdentificationComponent},];
 
 @NgModule({
   declarations: [
@@ -34,11 +38,14 @@ const appRoutes: Routes = [{ path: '', component: ListePlantesComponent },
     PlanteComponent,
     LogingComponent,
     SignupComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    WebComponent,
+    AjoutIdentificationComponent,
+
   ],
   // On a importé RouterModule.forRoot(appRoutes) pour les urls qui vont changer en fonction des url
   imports: [RouterModule.forRoot(appRoutes),
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [PlanteService],
   bootstrap: [AppComponent]

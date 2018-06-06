@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Plante } from '../_models';
 import { PlanteService } from '../_services/plante.service';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-liste-plantes',
   templateUrl: './liste-plantes.component.html',
@@ -14,18 +16,20 @@ export class ListePlantesComponent implements OnInit {
   edit = false;
   // plantes = [new Plante('lulu', 'lulu', 'lulu'),
   // new Plante('Passiflora', 'Malpighiales', 'Passifloraceae')];
-  plantes;
+  plantes = [];
+  liste = '';
   plante = new Plante();
   // Pour savoir quelle plante on a choisi
   selectedPlante: Plante;
   // Ici on indique là un service de type planteservice
   // Avec le private, on crée un attribut planteService et on pourra l'appeller avec this.planteService  dans la classe
-  constructor(private planteService: PlanteService) {
+  constructor(private planteService: PlanteService, private http: HttpClient) {
   }
   // Après l'initialisation du composant, avec le constructzur que l'on doit laisser vide, il fait ngOnInit.
   // ngOnInit, c'est un hook, un lifecycle hooks.
   ngOnInit() {
-    this.plantes = this.planteService.getPlantes();
+    //this.plantes = this.planteService.getPlantes();
+    this.http.get('http://localhost:8080/allusers').subscribe(r => this.showReturn(r));
 
     //this.planteService.getEvent().subscribe(console.log('ok'));
   }
@@ -55,6 +59,11 @@ export class ListePlantesComponent implements OnInit {
 
   onSelect(plante: Plante): void {
     this.selectedPlante = plante;
+  }
+
+  showReturn(r) {
+    this.liste = JSON.stringify(r);
+    this.plantes = JSON.parse(this.liste);
   }
 
 }
