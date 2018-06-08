@@ -1,4 +1,4 @@
-import { VersionElement } from ".";
+import { VersionElement, Utilisateur } from ".";
 
 // Le export permet d'utiliser la class en dehors du fichier
 export class Plante {
@@ -14,7 +14,8 @@ export class Plante {
     public dateSoumission: string;
     public photo: string;
     public utilisateur: string;
-    public listeVersion: VersionElement[] = [];
+    public idUtilisateur: Utilisateur;
+    public listeVersion: VersionElement[];
 
     // On peut mettre des paramètres par défaut
     constructor(genre: string = '', ordre: string = '', famille: string = '', photo: string = '', utilisateur: string = '') {
@@ -30,7 +31,15 @@ export class Plante {
         this.listeVersion = [];
     }
 
-   
+    getIdUtilisateur(): Utilisateur {
+        return this.idUtilisateur;
+    }
+    setIdUtilisateur(tmpIdUtilisateur: Utilisateur) {
+        this.idUtilisateur = tmpIdUtilisateur;
+        return this;
+    }
+
+
     setVille(tmpville: string): void {
         this.ville = tmpville;
     }

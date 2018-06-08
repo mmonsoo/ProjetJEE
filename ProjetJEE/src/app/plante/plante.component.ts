@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlanteService } from '../_services/plante.service';
 import { Plante, VersionElement } from '../_models';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-plante',
@@ -22,7 +23,9 @@ export class PlanteComponent implements OnInit {
   versionElementSelected: VersionElement;
   tmpSearchField: string;
   boolcsscard = false;
-  constructor(private activatedRoute: ActivatedRoute, private planteService: PlanteService) { }
+  listeVersion = [];
+  liste = '';
+  constructor(private activatedRoute: ActivatedRoute, private planteService: PlanteService, private http: HttpClient) { }
   ngOnInit() {
     // subscribe va affecter le param.id au param
     //Il est asynchrone, il part mais il ne revient pas, et donc le code continue à tourner. 
@@ -46,6 +49,7 @@ export class PlanteComponent implements OnInit {
     this.booleanPanelInfo = true;
     this.booleanAjoutIdentification = false;
     this.booleanAjoutIdentification = false;
+
   }
   // On ajoute une version d'un élément
   // constructor(tmpvaleurMetadonnee = '', tmpvaleurElement = '', tmpCommentaire = '')
@@ -63,6 +67,12 @@ export class PlanteComponent implements OnInit {
     this.booleanIdentificationPanel = true;
     this.booleanPanelInfo = false;
     this.booleanAjoutIdentification = false;
+    this.http.get('http://localhost:8080/allVersionElement/' + this.plante.id).subscribe(r => this.showReturn(r));
+  }
+
+  showReturn(r) {
+    this.liste = JSON.stringify(r);
+    this.listeVersion = JSON.parse(this.liste);
   }
   voter(v: VersionElement): void {
     // console.log(v.votes);

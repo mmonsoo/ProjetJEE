@@ -11,14 +11,16 @@
     <!-- <div class="card" style="width: 18rem;"> -->
       <img class="card-img-top" [src]="p.photo" alt="Image plante" height="300" width="300">
       <div class="card-body">
-        <h5 class="card-title">{{p.genre}}</h5>
-        <p class="card-text">{{p.famille}}</p>
-        <p class="card-utilisateur"> Soumis par {{p.utilisateur}}</p>
-        Nombre d'identifications <span class="badge"> {{p.listeVersion.length}}</span>  
+        <h5 *ngIf="p.genre!==''" class="card-title">{{p.genre}}</h5>
+        <h5 *ngIf="p.famille!==''" class="card-title">{{p.famille}}</h5>
+
+        <!-- <p class="card-text">{{p.famille}}</p> --> 
+        <p class="card-utilisateur"> Soumis par {{p.idUtilisateur.login}}</p>
+        Nombre d'identifications <span class="badge"> 10 </span>
+        <!-- {{p.listeVersion.length}}-->  
         <a [routerLink]="['/plante',p.id]" class="btn btn-primary">Identifier</a>
       </div>
     <!-- </div>-->
   </div>
 </div>
 
-<app-plante-detail [plante]="selectedPlante"></app-plante-detail>

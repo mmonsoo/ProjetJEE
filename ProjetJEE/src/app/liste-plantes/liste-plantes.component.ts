@@ -30,8 +30,11 @@ export class ListePlantesComponent implements OnInit {
   ngOnInit() {
     //this.plantes = this.planteService.getPlantes();
     this.http.get('http://localhost:8080/allplantes').subscribe(r => this.showReturn(r));
-
     //this.planteService.getEvent().subscribe(console.log('ok'));
+  }
+  showReturn(r) {
+    this.liste = JSON.stringify(r);
+    this.plantes = JSON.parse(this.liste);
   }
   // Ajoute dans la liste des plantes
   addPlante() {
@@ -56,14 +59,8 @@ export class ListePlantesComponent implements OnInit {
     this.edit = false;
     this.plante = new Plante();
   }
-
   onSelect(plante: Plante): void {
     this.selectedPlante = plante;
-  }
-
-  showReturn(r) {
-    this.liste = JSON.stringify(r);
-    this.plantes = JSON.parse(this.liste);
   }
 
 }

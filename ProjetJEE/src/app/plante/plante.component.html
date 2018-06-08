@@ -87,8 +87,34 @@
       <option data-tokens="embranchement">Embranchement</option>
     </select>
 
-    <div id="liste-identification">
-      
+
+    <div id="liste-identification"> 
+      <table *ngFor="let v of listeVersion"  class="table table-sm table-striped  table-condensed">
+        <thead *ngIf="v.valeurMetadonnee===tmpSearchField">
+          <tr class="bg-danger">
+            <th scope="col">Soumis par l'utilisateur: {{v.userId}}</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="v.valeurMetadonnee===tmpSearchField">
+          <tr class="bg-danger" >
+            <th scope="row">Date: {{v.date}}</th>
+          </tr>
+          <tr class="bg-info" >
+            <th scope="row"> Attribut:  {{v.valeurMetadonnee}}</th>
+          </tr>
+          <tr  class="bg-info bg-success">
+            <th  class="bg-info" scope="row">Valeur: {{v.valeurElement}}</th>
+          </tr>
+          <tr  class="bg-info bg-success">
+              <th  class="bg-info" scope="row">Commentaire: {{v.commentaire}}</th>
+            </tr>
+        </tbody>
+        <button *ngIf="v.valeurMetadonnee===tmpSearchField" (click)="voter(v)" type="button">Voter</button>
+      </table>
+    </div>
+
+  <!--
+    <div id="liste-identification"> 
       <table *ngFor="let v of plante.listeVersion"  class="table table-sm table-striped  table-condensed">
         <thead *ngIf="v.valeurMetadonnee===tmpSearchField">
           <tr class="bg-danger">
@@ -111,8 +137,6 @@
         </tbody>
         <button *ngIf="v.valeurMetadonnee===tmpSearchField" (click)="voter(v)" type="button">Voter</button>
       </table>
-
-
-
     </div>
+     -->
   </div>
